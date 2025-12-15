@@ -8,10 +8,10 @@ async function index(req, res) {
 async function showOne(req, res) {
   try {
     const question_id = parseInt(req.params.question_id);
-    const question = await Question.getQuestionById(question_id);
-    res.status(200).json(question);
+    const question_full = await Question.getQuestionById(question_id);
+    res.status(200).json(question_full);
   } catch (err) {
-    res.status(404).json({ "error": err.message })
+    res.status(404).json({ "error 52": err.message })
   }
 }
 

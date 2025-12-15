@@ -5,7 +5,7 @@ const questionRouter = Router()
 
 questionRouter.get('/question', questionController.index) 
 
-questionRouter.get('/question/:id', questionController.showOne)
+questionRouter.get('/question/:question_id', questionController.showOne)
 questionRouter.post('/question', questionController.submit)
 
 
