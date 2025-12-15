@@ -1,0 +1,21 @@
+.quiz-shell{
+  max-width: 900px;
+  background: #eae8e8; 
+  opacity: 0.95;
+}
+
+.img-box{
+  background: #d1d5db;    
+  min-height: 220px;      
+  border: 1px solid #e5e7eb; 
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-style: bold;
+}
+
+body {
+    background-image: url('images/background.png');
+}
