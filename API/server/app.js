@@ -8,6 +8,13 @@ const app = express()
 app.use(cors())
 app.use(logger)
 app.use(express.json())
-app.use('/questions', questionRouter)
+app.use('/', questionRouter)
+
+app.get("/", (req, res) => {
+  res.status(200).json({
+    title: "Questions",
+    description: "The questions await..."
+  })
+})
 
 module.exports = app
