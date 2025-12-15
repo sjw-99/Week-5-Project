@@ -24,13 +24,32 @@ VALUES
 ('The war ended with an armistice in late 1918.', 'On which date was the Armistice that ended World War I signed?', '11 November 1918', '1 July 1916', '28 June 1919', '4 August 1914', 'Option A'),
 ('After the war, Allied leaders met in Paris to plan peace.', 'What was the main purpose of the Treaty of Versailles?', 'To create alliances for future wars', 'To punish Germany and prevent future conflict', 'To divide Africa between European nations', 'To rebuild the Ottoman Empire', 'Option B'),
 ('The post-war peace settlement reshaped Europe.', 'Which organization was founded to help maintain peace after the war?', 'United Nations', 'European Union', 'League of Nations', 'Commonwealth of Nations', 'Option C');
-/*
+
 DROP TABLE IF Exists current_mission;
 CREATE TABLE current_mission (
     question_id INT GENERATED ALWAYS AS IDENTITY,
     question_intro VARCHAR(100) NOT NULL,
     question VARCHAR(100) NOT NULL,
     student_option VARCHAR(100) NOT NULL,
-    correct_option VARCHAR(100) NOT NULL
+    correct_option VARCHAR(100) NOT NULL,
+    topic VARCHAR(100) 
 );
-*/
+
+
+DROP TABLE IF Exists student_stats;
+CREATE TABLE student_stats (
+    topic_id INT GENERATED ALWAYS AS IDENTITY,
+    topic VARCHAR(100) NOT NULL,
+    topic_percent FLOAT,
+    times_completed INT,
+    EXP FLOAT
+);
+
+
+DROP TABLE IF Exists class_stats;
+CREATE TABLE class_stats (
+    student_id INT GENERATED ALWAYS AS IDENTITY,
+    topic VARCHAR(100) NOT NULL,
+    topic_percent FLOAT,
+    times_completed INT
+);
