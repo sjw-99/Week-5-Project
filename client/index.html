@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/styles.css">
+
+  <title>Mission Academy - Home</title>
+</head>
+
+<body>
+  <!-- Header Bar -->
+  <header class="topbar">
+    <div class="topbar-icons">
+      <button class="icon-btn" aria-label="Sound">
+        <i class="bi bi-volume-up"></i>
+      </button>
+      <button class="icon-btn" aria-label="Settings">
+        <i class="bi bi-gear"></i>
+      </button>
+      <button class="icon-btn" aria-label="Profile">
+        <i class="bi bi-person-circle"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- Welcome section -->
+    <section class="welcome">
+      <div class="welcome-left">
+        
+        <!-- image of the character -->
+        <img class="character-img" src="client/images/character.png" alt="Character" />
+      </div>
+
+      <div class="welcome-right">
+        <h1 class="welcome-title">Welcome back, John!</h1>
+        <p class="welcome-text">Are you ready for your next mission?</p>
+        <p class="welcome-text">
+          Complete challenges, unlock knowledge, and prove you've got what it takes to become a history expert.
+        </p>
+
+        <a class="cta-btn" href="missions.html">Start the Mission</a>
+      </div>
+    </section>
+
+    <!-- Mission and progress section -->
+    <section class="grid-row">
+      <div class="missions">
+        <h2 class="section-title">Your Top Missions</h2>
+
+        <div class="mission-cards">
+          <a class="mission-card" href="#">
+            <!-- image mission 1 -->
+            <img src="styles/images/rome.png" alt="WW1 Mission" />
+            <p>WW1 Mission</p>
+          </a>
+
+          <a class="mission-card" href="#">
+            <!-- image mission 2 -->
+            <img src="styles/images/rome.png" alt="Rome Mission" />
+            <p>Rome Mission</p>
+          </a>
+        </div>
+      </div>
+
+      <aside class="progress">
+        <h2 class="section-title">Progress</h2>
+
+        <!-- image of 2nd badge -->
+        <img class="badge-img" src="styles/images/rome.png" alt="Progress badge" />
+      </aside>
+    </section>
+
+    <!-- Fun fac slide show -->
+    <section class="fact-carousel">
+      <div id="didYouKnowCarousel" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Dots for the slide show -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#didYouKnowCarousel" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#didYouKnowCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#didYouKnowCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <!-- Slides Shows -->
+        <div class="carousel-inner">
+
+          <!-- picture 1 of the slide show -->
+          <div class="carousel-item active">
+            <img src="styles/images/rome.png" class="d-block w-100 fact-img" alt="Fun fact 1">
+            <div class="fact-overlay">
+
+              <!-- Picture 2 of the slide show -->
+              <div class="carousel-item">
+                <!-- CHANGE IMAGE: fun fact 2 -->
+                <img src="styles/images/Roman.png" class="d-block w-100 fact-img" alt="Fun fact 2">
+
+                <!-- Picture 3 of the slide show  -->
+                <div class="carousel-item">
+                  <img src="styles/images/rome.png" class="d-block w-100 fact-img" alt="Fun fact 3">
+
+                  <!-- Prev / Next buttons on the slide show -->
+                  <button class="carousel-control-prev" type="button" data-bs-target="#didYouKnowCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+
+                  <button class="carousel-control-next" type="button" data-bs-target="#didYouKnowCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+
+                </div>
+    </section>
+  </main>
+
+  <footer class="bottombar"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
