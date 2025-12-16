@@ -1,12 +1,12 @@
 const { Router } = require('express')
-const questionController = require('../controllers/questions')
+const questionsController = require('../controllers/questions')
 
 const questionRouter = Router() 
 
-questionRouter.get('/question', questionController.index) 
+questionRouter.get('/question', questionsController.index) 
 
-questionRouter.get('/question/:question_id', questionController.showOne)
-questionRouter.post('/question', questionController.submit)
+questionRouter.get('/question/:question_id', questionsController.showOne)
+questionRouter.post('/question', questionsController.submit)
 
 
 module.exports = questionRouter;

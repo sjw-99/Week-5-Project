@@ -1,9 +1,10 @@
 const express = require('express')
 const cors = require('cors')
 const logger = require('./logger')
-const questionRouter = require('./routers/questions')
+const questionsRouter = require('./routers/questions')
 const currentRouter = require('./routers/current')
-const studentRouter = require('./routers/students')
+const averagesRouter = require('./routers/averages')
+
 
 const app = express()
 
@@ -11,9 +12,9 @@ const app = express()
 app.use(cors())
 app.use(logger)
 app.use(express.json())
-app.use('/', questionRouter)
+app.use('/', questionsRouter)
 app.use('/', currentRouter)
-//app.use('/', studentRouter)
+app.use('/', averagesRouter)
 
 app.get("/", (req, res) => {
   res.status(200).json({
