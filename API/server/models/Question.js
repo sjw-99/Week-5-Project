@@ -1,7 +1,7 @@
 const db = require('../db/connect')
 
 class Question {
-    constructor({ question_id, question_intro, question, option_a, option_b, option_c, option_d, correct_option }) {
+    constructor({ question_id, question_intro, question, option_a, option_b, option_c, option_d, topic, correct_option }) {
         this.question_id = question_id
         this.question_intro = question_intro
         this.question = question
@@ -9,6 +9,7 @@ class Question {
         this.option_b = option_b
         this.option_c = option_c
         this.option_d = option_d
+        this.topic = topic
         this.correct_option = correct_option
     }
 
