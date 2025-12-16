@@ -18,7 +18,6 @@ class Question {
         if (response.rows.length != 1) {
             throw new Error('Unable to find question number: ' + question_id)
         }
-        //console.log(response.rows[0]);
         return new Question(response.rows[0])
     }
 }

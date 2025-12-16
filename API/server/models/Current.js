@@ -19,7 +19,7 @@ class Current {
     }
 
     static async clearTable() {
-        await db.query('DROP TABLE IF EXISTS current')
+        await db.query('TRUNCATE TABLE current;');
     }
 
 
@@ -28,7 +28,7 @@ class Current {
         const current_mission = await db.query('SELECT * FROM current;')
         if(current_mission.rows.length < 10) {
             let response = await db.query(
-                    'INSERT INTO current (question_intro, question,correct_option) SELECT question_intro, question, correct_option FROM question WHERE question_id = $1;',[question_id]);
+                    'INSERT INTO current (question_intro, question,student_option,correct_option) SELECT question_intro, question, correct_option,correct_option FROM question WHERE question_id = $1;',[question_id]);
         } else {
             throw new Error('Current Mission full')
         }

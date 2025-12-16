@@ -14,16 +14,16 @@ CREATE TABLE question (
 
 INSERT INTO question (question_intro, question, option_a, option_b, option_c, option_d, correct_option)
 VALUES
-('In the early 20th century, European powers were forming alliances that divided the continent.', 'What were the two main alliance systems before World War I began?', 'Triple Entente and Triple Alliance', 'League of Nations and Axis Powers', 'NATO and Warsaw Pact', 'Central Powers and Allied Nations', 'Option A'),
-('Nationalism and empire-building increased tensions among European powers.', 'Which event is often seen as the immediate cause of World War I?', 'The German invasion of Belgium', 'The assassination of Archduke Franz Ferdinand', 'The British naval blockade', 'The signing of the Treaty of Versailles', 'Option B'),
-('After the assassination in Sarajevo, alliances were triggered into war.', 'Which countries made up the Triple Entente?', 'Germany, Austria-Hungary, and Italy', 'Britain, France, and Russia', 'Italy, Japan, and the USA', 'Austria-Hungary, Bulgaria, and Turkey', 'Option B'),
-('New technologies changed the nature of warfare.', 'Which new weapon was first used on a large scale during World War I?', 'Atomic bomb', 'Tanks', 'Longbows', 'Submarines', 'Option B'),
-('Trench warfare became a horrific hallmark of the Western Front.', 'Why did trench warfare lead to a stalemate?', 'Both sides had strong defensive positions and similar technology', 'Armies refused to fight during winter', 'Commanders avoided attacking on Sundays', 'The trenches were too far apart for fighting', 'Option A'),
-('World War I spread across continents due to imperial involvement.', 'Why was World War I considered a "world" war?', 'It involved colonies and nations from across the world', 'It was fought only in Europe', 'It lasted more than ten years', 'All countries fought on the same side', 'Option A'),
-('The war had a major impact on life at home.', 'What role did women increasingly take on during the war?', 'Serving as soldiers in the front lines', 'Working in factories and nursing', 'Becoming government ministers', 'Fighting for foreign armies', 'Option B'),
-('The war ended with an armistice in late 1918.', 'On which date was the Armistice that ended World War I signed?', '11 November 1918', '1 July 1916', '28 June 1919', '4 August 1914', 'Option A'),
-('After the war, Allied leaders met in Paris to plan peace.', 'What was the main purpose of the Treaty of Versailles?', 'To create alliances for future wars', 'To punish Germany and prevent future conflict', 'To divide Africa between European nations', 'To rebuild the Ottoman Empire', 'Option B'),
-('The post-war peace settlement reshaped Europe.', 'Which organization was founded to help maintain peace after the war?', 'United Nations', 'European Union', 'League of Nations', 'Commonwealth of Nations', 'Option C');
+('In the early 20th century, European powers were forming alliances that divided the continent.', 'What were the two main alliance systems before World War I began?', 'Triple Entente and Triple Alliance', 'League of Nations and Axis Powers', 'NATO and Warsaw Pact', 'Central Powers and Allied Nations', 'Triple Entente and Triple Alliance'),
+('Nationalism and empire-building increased tensions among European powers.', 'Which event is often seen as the immediate cause of World War I?', 'The German invasion of Belgium', 'The assassination of Archduke Franz Ferdinand', 'The British naval blockade', 'The signing of the Treaty of Versailles', 'The assassination of Archduke Franz Ferdinand'),
+('After the assassination in Sarajevo, alliances were triggered into war.', 'Which countries made up the Triple Entente?', 'Germany, Austria-Hungary, and Italy', 'Britain, France, and Russia', 'Italy, Japan, and the USA', 'Austria-Hungary, Bulgaria, and Turkey', 'Britain, France, and Russia'),
+('New technologies changed the nature of warfare.', 'Which new weapon was first used on a large scale during World War I?', 'Atomic bomb', 'Tanks', 'Longbows', 'Submarines', 'Tanks'),
+('Trench warfare became a horrific hallmark of the Western Front.', 'Why did trench warfare lead to a stalemate?', 'Both sides had strong defensive positions and similar technology', 'Armies refused to fight during winter', 'Commanders avoided attacking on Sundays', 'The trenches were too far apart for fighting', 'Both sides had strong defensive positions and similar technology'),
+('World War I spread across continents due to imperial involvement.', 'Why was World War I considered a "world" war?', 'It involved colonies and nations from across the world', 'It was fought only in Europe', 'It lasted more than ten years', 'All countries fought on the same side', 'It involved colonies and nations from across the world'),
+('The war had a major impact on life at home.', 'What role did women increasingly take on during the war?', 'Serving as soldiers in the front lines', 'Working in factories and nursing', 'Becoming government ministers', 'Fighting for foreign armies', 'Working in factories and nursing'),
+('The war ended with an armistice in late 1918.', 'On which date was the Armistice that ended World War I signed?', '11 November 1918', '1 July 1916', '28 June 1919', '4 August 1914', '11 November 1918'),
+('After the war, Allied leaders met in Paris to plan peace.', 'What was the main purpose of the Treaty of Versailles?', 'To create alliances for future wars', 'To punish Germany and prevent future conflict', 'To divide Africa between European nations', 'To rebuild the Ottoman Empire', 'To punish Germany and prevent future conflict'),
+('The post-war peace settlement reshaped Europe.', 'Which organization was founded to help maintain peace after the war?', 'United Nations', 'European Union', 'League of Nations', 'Commonwealth of Nations', 'League of Nations');
 
 DROP TABLE IF Exists current;
 CREATE TABLE current (
@@ -36,8 +36,8 @@ CREATE TABLE current (
 );
 
 
-DROP TABLE IF Exists student_stats;
-CREATE TABLE student_stats (
+DROP TABLE IF Exists student;
+CREATE TABLE student (
     topic_id INT GENERATED ALWAYS AS IDENTITY,
     topic VARCHAR(100) NOT NULL,
     topic_percent FLOAT,
@@ -46,8 +46,8 @@ CREATE TABLE student_stats (
 );
 
 
-DROP TABLE IF Exists class_stats;
-CREATE TABLE class_stats (
+DROP TABLE IF Exists stats;
+CREATE TABLE stats (
     student_id INT GENERATED ALWAYS AS IDENTITY,
     topic VARCHAR(100) NOT NULL,
     topic_percent FLOAT,
