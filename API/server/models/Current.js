@@ -10,10 +10,25 @@ class Current {
         this.topic = topic     
     }
 
+    static async getAll() {
+        const response = await db.query('SELECT * FROM current;')
+        if (response.rows.length === 0) {
+            throw new Error('No questions completed')
+        }
+        return response.rows.map(c => new Current(c))
+    }
+
+    static async clearTable() {
+        await db.query('DROP TABLE IF EXISTS current')
+    }
+
+
     static async addQuestionToCurrent(question_id) {
+        
         const current_mission = await db.query('SELECT * FROM current;')
-        if(current_mission.rows.length<10) {
-            let response = await db.query('INSERT INTO current (question_id, question_intro, question,correct_option) VALUES (SELECT question_id, question_intro, question,correct_option FROM question WHERE question_id = $1);', [question_id] );
+        if(current_mission.rows.length < 10) {
+            let response = await db.query(
+                    'INSERT INTO current (question_intro, question,correct_option) SELECT question_intro, question, correct_option FROM question WHERE question_id = $1;',[question_id]);
         } else {
             throw new Error('Current Mission full')
         }
