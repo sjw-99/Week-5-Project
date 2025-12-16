@@ -13,7 +13,7 @@ app.use(logger)
 app.use(express.json())
 app.use('/', questionRouter)
 app.use('/', currentRouter)
-app.use('/', studentRouter)
+//app.use('/', studentRouter)
 
 app.get("/", (req, res) => {
   res.status(200).json({
