@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-
+const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
 async function register(req, res) {
@@ -21,7 +21,16 @@ async function login(req, res) {
         
         const match = await bcrypt.compare(data.password, user.password)
         if (match) {
-            res.status(200).json({"success": true})
+            const payload = {
+                username: user.username
+            }
+            const sendToken = (err, token) => {
+                if (err) {
+                    throw new Error('Error in token generation')
+                }
+            }
+            res.status(200).json({"success": true, token: token}) // 
+            jwt.sign(payload, process.env.SECRET_TOKEN, { expiresIn: 3600 }) // generate a token which lasts an hour and embeds username onto the payload
         } else {
             throw new Error('User could not be authenticated')
         }
