@@ -28,9 +28,9 @@ async function login(req, res) {
                 if (err) {
                     throw new Error('Error in token generation')
                 }
+                res.status(200).json({"success": true, token: token}) // 
             }
-            res.status(200).json({"success": true, token: token}) // 
-            jwt.sign(payload, process.env.SECRET_TOKEN, { expiresIn: 3600 }) // generate a token which lasts an hour and embeds username onto the payload
+            jwt.sign(payload, process.env.SECRET_TOKEN, { expiresIn: 3600 }, sendToken) // generate a token which lasts an hour and embeds username onto the payload
         } else {
             throw new Error('User could not be authenticated')
         }
