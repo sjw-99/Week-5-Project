@@ -18,7 +18,6 @@ app.use(logger)
 app.use(express.json())
 app.use('/', questionsRouter)
 app.use('/', currentRouter)
-app.use('/', studentRouter)
 app.use('/users', userRouter)
 app.use('/', averagesRouter)
 
