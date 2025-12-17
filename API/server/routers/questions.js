@@ -1,7 +1,7 @@
 const { Router } = require('express')
-const questionController = require('../controllers/questions')
-const authenticator = require("../middleware/authenticator");
 const questionsController = require('../controllers/questions')
+const authenticator = require("../middleware/authenticator");
+
 
 const questionRouter = Router() 
 
