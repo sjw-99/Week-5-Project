@@ -15,7 +15,7 @@ class Question {
 
     static async getQuestionById(question_id) {
 
-        const response = await db.query('SELECT question_id, question_intro, question, option_a, option_b, option_c, option_d FROM question WHERE question_id = $1;', [question_id]);
+        const response = await db.query('SELECT * FROM question WHERE question_id = $1;', [question_id]);
         if (response.rows.length != 1) {
             throw new Error('Unable to find question number: ' + question_id)
         }
