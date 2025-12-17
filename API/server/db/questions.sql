@@ -41,11 +41,18 @@ DROP TABLE IF Exists student;
 CREATE TABLE student (
     topic_id INT GENERATED ALWAYS AS IDENTITY,
     topic VARCHAR(100) NOT NULL,
+    topic_percent FLOAT NOT NULL
+    
+);
+/*
+DROP TABLE IF Exists stats;
+CREATE TABLE averages (
+    topic VARCHAR(100) NOT NULL,
     topic_percent FLOAT,
     times_completed INT,
     EXP FLOAT
 );
-
+*/
 
 DROP TABLE IF Exists stats;
 CREATE TABLE stats (
@@ -53,4 +60,12 @@ CREATE TABLE stats (
     topic VARCHAR(100) NOT NULL,
     topic_percent FLOAT,
     times_completed INT
+);
+
+DROP TABLE IF Exists user_account;
+CREATE TABLE user_account (
+    user_id INT GENERATED ALWAYS AS IDENTITY,
+    username VARCHAR(30) UNIQUE NOT NULL,
+    password CHAR(60) NOT NULL,
+    PRIMARY KEY (user_id)
 );
