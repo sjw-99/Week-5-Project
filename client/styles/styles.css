@@ -308,6 +308,19 @@ body {
 
 /* Quiz page  */
 
+.quiz-bg {
+  min-height: 100vh;
+  background: 
+    linear-gradient(
+      rgba(255,255,255,0.85),
+      rgba(255,255,255,0.85)
+    ),
+    url("../styles/images/LibraryBg.jpg") center / cover no-repeat;
+}
+.quiz-shell {
+  max-width: 1100px;
+}
+
 .quiz-shell .row {
   align-items: flex-start;
 }
