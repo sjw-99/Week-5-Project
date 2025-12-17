@@ -26,7 +26,6 @@ async function login(req, res) {
             throw new Error('User could not be authenticated')
         }
 
-        res.status(200).json(data)
     } catch(err) {
         res.status(401).json({ error: err.message})
     }
