@@ -13,7 +13,28 @@ async function index(req, res) {
     }
 }
 
+async function show (req, res) {
+    try {
+        let question_id = req.params.question_id;
+        const current = await Current.getOneQuetsionById(question_id);
+        res.status(200).json(current)
+    } catch(err) {
+        res.status(404).json({error: err.message})
+    }
+}
+
+async function update (req, res) {
+    try {
+        const question_id = req.params.question_id;
+        const data = req.body;
+        const current = await Country.getOneQuetsionById(question_id);
+        const result = await current.update(data);
+        res.status(200).json(result);
+    } catch (err) {
+        res.status(404).json({error: err.message})
+    }
+}
 
 
 
-module.exports = {index}
+module.exports = {index,show,update}
