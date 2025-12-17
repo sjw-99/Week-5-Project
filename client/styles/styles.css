@@ -305,7 +305,20 @@ body {
   filter: brightness(0.97);
 }
 
-/*  Quiz style */
+/* Quiz page  */
+
+.quiz-bg {
+  min-height: 100vh;
+  background: 
+    linear-gradient(
+      rgba(255,255,255,0.85),
+      rgba(255,255,255,0.85)
+    ),
+    url("../styles/images/LibraryBg.jpg") center / cover no-repeat;
+}
+.quiz-shell {
+  max-width: 1100px;
+}
 
 .quiz-shell .row {
   align-items: flex-start;
@@ -358,6 +371,7 @@ body {
   border-color: #e26b5f;
 }
 
+/* prevent clicking just the radio */
 .quiz-option input {
   pointer-events: none;
 }
@@ -427,5 +441,119 @@ body {
 
   .form-check-input {
     transform: scale(1.15);
+  }
+}
+
+/*  Login and Create account */
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+/* Background image */
+.login-bg {
+  background: url("../styles/images/LibraryBg.jpg") center / cover no-repeat;
+}
+
+/* Glass effect card */
+.login-card {
+  width: min(620px, 92vw);        
+  padding: 54px 46px;              
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  text-align: center;
+}
+
+/* Title */
+.login-card .title {
+  font-size: 44px;
+  font-weight: 800;
+  margin-bottom: 28px;
+}
+
+/* Form layout */
+.login-card .form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Inputs */
+.login-card .input {
+  height: 56px;
+  border-radius: 30px;
+  border: 1px solid rgba(0,0,0,0.15);
+  padding: 0 22px;
+  font-size: 20px;
+  background: rgba(255,255,255,0.85);
+  outline: none;
+}
+
+.login-card .input::placeholder {
+  color: #9a9a9a;
+}
+
+/* Forgot password */
+.login-card .forgot {
+  align-self: flex-end;
+  font-size: 13px;
+  color: #111;
+  text-decoration: none;
+}
+
+.login-card .forgot:hover {
+  text-decoration: underline;
+}
+
+/* Button */
+.login-card .login-btn {
+  height: 48px;
+  border: none;
+  border-radius: 26px;
+  background: #F28C28;
+  color: #111;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-card .login-btn:hover {
+  filter: brightness(0.95);
+}
+
+/* Bottom link */
+.login-card .signup {
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+.login-card .signup a {
+  color: #111;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.login-card .signup a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile  */
+@media (max-width: 600px) {
+  .login-card {
+    padding: 40px 26px;
+  }
+
+  .login-card .title {
+    font-size: 34px;
+  }
+
+  .login-card .input {
+    font-size: 18px;
+    height: 50px;
   }
 }
