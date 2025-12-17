@@ -7,7 +7,7 @@ async function index(req, res) {
         const current_mission = await Current.getAll();
         res.status(200).json(current_mission);
         await Student.addScoreToStudent()
-        //await Current.clearTable()
+        await Current.clearTable()
     } catch(err) {
         res.status(500).json({'error test': err.message})
     }

@@ -1,11 +1,11 @@
 const db = require('../db/connect')
 
 class Average {
-    constructor({ topic, tp, times_completed , EXP}) {
+    constructor({ topic, tp, times_completed , exp}) {
         this.topic=topic
         this.tp=tp
         this.times_completed=times_completed
-        this.EXP = EXP
+        this.exp = exp
     }
     static async getAll() {
         const student_table = await db.query('SELECT * FROM student;')
