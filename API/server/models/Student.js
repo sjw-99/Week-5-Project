@@ -10,7 +10,7 @@ class Student {
     static async addScoreToStudent() {
         const current_mission = await db.query('SELECT * FROM current;')
         const percentTable = await db.query('SELECT topic, count(*) FROM current WHERE student_option=correct_option GROUP BY topic;')
-        if(current_mission.rows.length == 10) {
+        if(current_mission.rows.length != 0) {
             const correct_topic = percentTable.rows[0]['topic']; 
             const correct_counter = percentTable.rows[0]['count'] 
 
