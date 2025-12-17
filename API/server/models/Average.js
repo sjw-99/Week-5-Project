@@ -12,8 +12,7 @@ class Average {
         if (student_table.rows.length === 0) {
             throw new Error('No missions completed')
         }
-        let response = await db.query('SELECT topic, avg(topic_percent) as tp, count(*) as times_completed, avg(topic_percent) * count(*) as EXP FROM student GROUP BY topic');
-        console.log(response.rows[0]);
+        let response = await db.query('SELECT topic, avg(topic_percent) as tp, count(*) as times_completed, avg(topic_percent) * count(*) as exp FROM student GROUP BY topic');
         return response.rows.map(c => new Average(c))
     }
 }
