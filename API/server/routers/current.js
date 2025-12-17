@@ -4,6 +4,6 @@ const authenticator = require("../middleware/authenticator");
 const currentRouter = Router() 
 
 currentRouter.get('/questions/summary', currentController.index)
-
+currentRouter.patch("/question/:question_id", currentController.update);
 
 module.exports = currentRouter;
