@@ -20,6 +20,7 @@ class Current {
 
     static async clearTable() {
         await db.query('TRUNCATE TABLE current;');
+        await db.query('DBCC CHECKIDENT (\'current\', RESEED, 0);')
     }
 
     static async getOneQuetsionById(question_id) {
