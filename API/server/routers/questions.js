@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const questionController = require('../controllers/questions')
-
+const authenticator = require("../middleware/authenticator");
 const questionRouter = Router() 
 
 questionRouter.get('/question', questionController.index) 
