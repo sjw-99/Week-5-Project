@@ -60,33 +60,38 @@ async function questionTime(e) {
   let answerBox = document.querySelector('input[name="answer"]:checked');
   let answer = answerBox.value;
 
-  const response = await fetch(
-    `https://week-5-project-nylk.onrender.com/question/${i}`
-  );
-  const data = await response.json();
+  try {
+    const response = await fetch(
+      `https://week-5-project-nylk.onrender.com/question/${i}`
+    );
+    const data = await response.json();
 
-  console.log({
-    question_intro: data["question_intro"],
-    question: data["question"],
-    student_option: answer,
-    correct_option: data["correct_option"],
-    topic: data["topic"]
-  });
+    console.log({
+      question_intro: data["question_intro"],
+      question: data["question"],
+      student_option: answer,
+      correct_option: data["correct_option"],
+      topic: data["topic"]
+    });
 
-  const respCreate = await fetch(
-    `https://week-5-project-nylk.onrender.com/cqadd`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        "question_intro": data["question_intro"],
-        "question": data["question"],
-        "student_option": answer,
-        "correct_option": data["correct_option"],
-        "topic": data["topic"]
-      }),
-    }
-  );
+    const respCreate = await fetch(
+      `https://week-5-project-nylk.onrender.com/cqadd`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          "question_intro": data["question_intro"],
+          "question": data["question"],
+          "student_option": answer,
+          "correct_option": data["correct_option"],
+          "topic": data["topic"]
+        }),
+      }
+    );
+  } catch (error) {
+    new Error("Failed to post question")
+  }
+
 
   if (answer == currentQuestion["correct_option"]) {
     console.log("Correct!");
