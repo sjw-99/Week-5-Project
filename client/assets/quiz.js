@@ -14,6 +14,7 @@ const optionDValue = document.getElementById("option-D-input");
 let currentQuestion;
 let i = 1;
 
+clearSummary()
 fetchQuestion(i);
 
 questionForm.addEventListener("submit", (e) => {
@@ -29,6 +30,14 @@ questionForm.addEventListener("submit", (e) => {
     fetchQuestion(i);
   }, 1500);
 });
+
+async function clearSummary() {
+  try {
+    const clear = await fetch('https://week-5-project-nylk.onrender.com/clear');
+  } catch (error) {
+    return new Error("Failed to clear summary");
+  }
+}
 
 async function fetchQuestion(question_id) {
   try {

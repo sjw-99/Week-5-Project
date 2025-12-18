@@ -29,7 +29,6 @@ class Student {
                 console.log(correct_counter); 
             }
 
-
             let response = await db.query('INSERT INTO student (topic,topic_percent) VALUES ($1, $2);',[correct_topic,correct_counter])
         } else {
             throw new Error('10 Questions need to be completed to generate summary')
@@ -37,6 +36,16 @@ class Student {
 
         //let response = await db.query('INSERT INTO student (topic,topic_percent) $1;',[percentTable])
     }
+
+    static async getLastScore() {
+        const latest = await db.query("SELECT * FROM student ORDER BY topic_id DESC LIMIT 1;")
+        if(latest.rows.length!=1) {
+            throw new Error("Unable to find Score");
+        }
+        return new Student(latest.rows[0])
+    }
+
+
 }
 
 module.exports = Student

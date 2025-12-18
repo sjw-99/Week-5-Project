@@ -41,6 +41,15 @@ async function show (req, res) {
     }
 }
 
+async function getLastScore(req, res) {
+    try {
+       const latest = await Student.getLastScore() 
+       res.status(200).json(latest)
+    } catch (err) {
+        res.status(404).json({error: err.message})
+    }
+}
+
 async function create (req, res) {
     try {
         const data = req.body;
@@ -53,4 +62,4 @@ async function create (req, res) {
 
 
 
-module.exports = {index,show,create,addToStudents,clear}
+module.exports = {index,show,create,addToStudents,clear,getLastScore}
