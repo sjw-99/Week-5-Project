@@ -2,84 +2,106 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="styles/styles.css">
 
   <title>Mission Academy - Home</title>
 </head>
 
 <body>
-  <!-- Header Bar -->
   <header class="topbar">
     <div class="topbar-icons">
-      <button class="icon-btn" aria-label="Sound">
-        <i class="bi bi-volume-up"></i>
-      </button>
-      <button class="icon-btn" aria-label="Settings">
-        <i class="bi bi-gear"></i>
-      </button>
-      <button class="icon-btn" aria-label="Profile">
-        <i class="bi bi-person-circle"></i>
-      </button>
+      <button class="icon-btn" aria-label="Sound"><i class="bi bi-volume-up"></i></button>
+      <button class="icon-btn" aria-label="Settings"><i class="bi bi-gear"></i></button>
+      <button class="icon-btn" aria-label="Profile"><i class="bi bi-person-circle"></i></button>
     </div>
   </header>
 
-  <main class="page">
+  <main class="container-fluid">
 
-    <!-- Welcome section -->
-    <section class="welcome">
-      <div class="welcome-left">
-        
-        <!-- image of the character -->
-        <img class="character-img" src="client/images/character.png" alt="Character" />
-      </div>
+    <div class="content">
 
-      <div class="welcome-right">
-        <h1 class="welcome-title">Welcome back, John!</h1>
-        <p class="welcome-text">Are you ready for your next mission?</p>
-        <p class="welcome-text">
-          Complete challenges, unlock knowledge, and prove you've got what it takes to become a history expert.
-        </p>
-
-        <a class="cta-btn" href="missions.html">Start the Mission</a>
-      </div>
-    </section>
-
-    <!-- Mission and progress section -->
-    <section class="grid-row">
-      <div class="missions">
-        <h2 class="section-title">Your Top Missions</h2>
-
-        <div class="mission-cards">
-          <a class="mission-card" href="#">
-            <!-- image mission 1 -->
-            <img src="styles/images/rome.png" alt="WW1 Mission" />
-            <p>WW1 Mission</p>
-          </a>
-
-          <a class="mission-card" href="#">
-            <!-- image mission 2 -->
-            <img src="styles/images/rome.png" alt="Rome Mission" />
-            <p>Rome Mission</p>
-          </a>
+      <section class="welcome">
+        <div class="welcome-left">
+          <!-- Character image -->
+          <img class="character-img" src="styles/images/character.png" alt="Character">
         </div>
-      </div>
 
-      <aside class="progress">
-        <h2 class="section-title">Progress</h2>
+        <div class="welcome-right">
+          <h1 class="welcome-title">Welcome back, John!</h1>
+          <p class="welcome-text">Are you ready for your next mission?</p>
+          <p class="welcome-text">
+            Complete challenges, unlock knowledge, and prove you've got what it takes to become a history expert.
+          </p>
 
-        <!-- image of 2nd badge -->
-        <img class="badge-img" src="styles/images/rome.png" alt="Progress badge" />
-      </aside>
-    </section>
+          <div class="cta-wrap">
+            <a class="cta-btn" href="missions.html">Start the Mission</a>
+          </div>
+        </div>
+      </section>
 
-    <!-- Fun fac slide show -->
+      <section class="grid-row">
+        <div class="missions">
+          <h2 class="section-title">Your Top Missions</h2>
+
+          <div class="mission-cards">
+            <a class="mission-card" href="#">
+              <!-- Mission image -->
+              <img src="styles/images/ww1.png" alt="WW1 Mission">
+              <p>WW1 Mission</p>
+            </a>
+
+            <a class="mission-card selected" href="#">
+              <!-- Mission image -->
+              <img src="styles/images/rome.png" alt="Rome Mission">
+              <p>Rome Mission</p>
+            </a>
+          </div>
+        </div>
+
+        <aside class="progress">
+          <h2 class="section-title">Your Progress</h2>
+
+          <div class="progress-wrap">
+            <div class="progress-badge">
+              <!-- Badge image -->
+              <img class="badge-img" src="styles/images/2nd.png" alt="Progress badge">
+            </div>
+
+            <div class="progress-list">
+              <div class="progress-row">
+                <span class="progress-name">WW1 Mission</span>
+                <span class="progress-bar"><span class="fill green" style="width:92%;"></span></span>
+              </div>
+
+              <div class="progress-row">
+                <span class="progress-name">Roman Mission</span>
+                <span class="progress-bar"><span class="fill yellow" style="width:72%;"></span></span>
+              </div>
+
+              <div class="progress-row">
+                <span class="progress-name">Tudors Mission</span>
+                <span class="progress-bar"><span class="fill yellow" style="width:62%;"></span></span>
+              </div>
+
+              <div class="progress-row">
+                <span class="progress-name">Egyptians Mission</span>
+                <span class="progress-bar"><span class="fill yellow" style="width:56%;"></span></span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+    </div>
+
     <section class="fact-carousel">
       <div id="didYouKnowCarousel" class="carousel slide" data-bs-ride="carousel">
 
-        <!-- Dots for the slide show -->
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#didYouKnowCarousel" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1"></button>
@@ -87,38 +109,58 @@
           <button type="button" data-bs-target="#didYouKnowCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
 
-        <!-- Slides Shows -->
         <div class="carousel-inner">
-
-          <!-- picture 1 of the slide show -->
           <div class="carousel-item active">
-            <img src="styles/images/rome.png" class="d-block w-100 fact-img" alt="Fun fact 1">
+            <!-- Fun fact -->
+            <a href="quiz.html">
+              <img src="styles/images/ww1Fact.png" class="d-block w-100 fact-img" alt="Fun fact 1">
+            </a>
             <div class="fact-overlay">
 
-              <!-- Picture 2 of the slide show -->
-              <div class="carousel-item">
-                <!-- CHANGE IMAGE: fun fact 2 -->
-                <img src="styles/images/Roman.png" class="d-block w-100 fact-img" alt="Fun fact 2">
+            </div>
+          </div>
 
-                <!-- Picture 3 of the slide show  -->
-                <div class="carousel-item">
-                  <img src="styles/images/rome.png" class="d-block w-100 fact-img" alt="Fun fact 3">
+          <div class="carousel-item">
+            <!-- Fun fact -->
+            <img src="styles/images/romanFact.png" class="d-block w-100 fact-img" alt="Fun fact 2">
+            <div class="fact-overlay">
 
-                  <!-- Prev / Next buttons on the slide show -->
-                  <button class="carousel-control-prev" type="button" data-bs-target="#didYouKnowCarousel"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
+            </div>
+          </div>
 
-                  <button class="carousel-control-next" type="button" data-bs-target="#didYouKnowCarousel"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
+          <div class="carousel-item">
+            <!-- Fun fact -->
+            <img src="styles/images/tudorsFact.png" class="d-block w-100 fact-img" alt="Fun fact 3">
+            <div class="fact-overlay">
 
-                </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#didYouKnowCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#didYouKnowCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+
+      </div>
     </section>
+
+    <div class="content">
+      <section class="learn">
+        <h3 class="learn-title">Learn More About History</h3>
+
+        <div class="learn-buttons">
+          <a class="learn-btn" href="#">Roman Times</a>
+          <a class="learn-btn" href="#">World War 1</a>
+          <a class="learn-btn" href="#">Tudor Times</a>
+          <a class="learn-btn" href="#">Egyptian Times</a>
+        </div>
+      </section>
+    </div>
+
   </main>
 
   <footer class="bottombar"></footer>
