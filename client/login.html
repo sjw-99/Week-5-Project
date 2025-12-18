@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/styles.css">
+  <script defer src="./assets/login.js"></script>
   <title>Mission Academy Login</title>
 </head>
 <body class="page login-bg">
   <section class="login-card">
     <h1 class="title">Mission Academy</h1>
 
-    <form class="form" action="#" method="post">
-      <input class="input" type="text" name="username" placeholder="Username" required />
-      <input class="input" type="password" name="password" placeholder="Password" required />
+    <form id="login-form" class="form" action="#" method="post">
+      <input id="username" class="input" type="text" name="username" placeholder="Username" required />
+      <input id="password" class="input" type="password" name="password" placeholder="Password" required />
 
       <a class="forgot" href="#">Forgot Password</a>
 

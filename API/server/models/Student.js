@@ -8,11 +8,27 @@ class Student {
     }
 
     static async addScoreToStudent() {
+        
         const current_mission = await db.query('SELECT * FROM current;')
+        
         const percentTable = await db.query('SELECT topic, count(*) FROM current WHERE student_option=correct_option GROUP BY topic;')
+        console.log(percentTable.rows.length);
         if(current_mission.rows.length != 0) {
-            const correct_topic = percentTable.rows[0]['topic']; 
-            const correct_counter = percentTable.rows[0]['count'] 
+            let correct_topic;
+            let correct_counter;
+            if(percentTable.rows.length != 0) {
+                correct_topic = percentTable.rows[0]['topic']; 
+                correct_counter = percentTable.rows[0]['count']*10
+                console.log(correct_topic);
+                console.log(correct_counter); 
+            } else {
+                const tempTable = await db.query('SELECT DISTINCT topic FROM current')
+                correct_topic=tempTable.rows[0]['topic']
+                correct_counter=0
+                console.log(correct_topic);
+                console.log(correct_counter); 
+            }
+
 
             let response = await db.query('INSERT INTO student (topic,topic_percent) VALUES ($1, $2);',[correct_topic,correct_counter])
         } else {

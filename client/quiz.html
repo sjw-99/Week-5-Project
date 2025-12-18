@@ -7,148 +7,108 @@
     <link rel="stylesheet" href="styles/styles.css">
   <title>Quiz</title>
 </head>
-    <body class="bg-dark-subtle">
-        <div class="container py-4 py-md-5">
-            <section class="quiz-shell mx-auto p-3 p-md-4 rounded-4">
-                <h1 id="question-intro" class="h4 fw-bold text-center mb-4"></h1>
-                <div class="card border-0 shadow-sm rounded-4">
-                    <div class="card-body p-3 p-md-4">
-                        <h2 id="quiz-question" class="h4 fw-bold text-center mb-4"></h2>
-                        <div class="row g-3 align-items-start">
-                            <div class="col-12 col-md-6">
-                                <img src="styles/images/quiz.png" height="300px" width="400px"
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <form id="question-form">
-                                    <div class="list-group">
-                                        <label class="list-group-item d-flex gap-2">
-                                            <input class="form-check-input mt-1" type="radio" name="answer"
-                                            id="option-A-input"
-                                            value="option-A" required/>
-                                            <span id="option-A"></span>
-                                        </label>
-
-                                        <label class="list-group-item d-flex gap-2">
-                                            <input class="form-check-input mt-1" type="radio" name="answer"
-                                            id="option-B-input"
-                                            value="option-B"/>
-                                            <span id="option-B"></span>
-                                        </label>
-
-                                        <label class="list-group-item d-flex gap-2">
-                                            <input class="form-check-input mt-1" type="radio" name="answer"
-                                            id="option-C-input"
-                                            value="option-C"/>
-                                            <span id="option-C"></span>
-                                        </label>
-
-                                        <label class="list-group-item d-flex gap-2">
-                                            <input class="form-check-input mt-1" type="radio" name="answer"
-                                            id="option-D-input" 
-                                            value="option-D"/>
-                                            <span name="answer" id="option-D"></span>
-                                        </label>
-                                        <div class="d-flex justify-content-end mt-3">
-                                            <button id="next-button" type="submit" value="submit" class="btn btn-dark px-4">
-                                                Next <span aria-hidden="true">→</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
 
 <body class="bg-dark-subtle quiz-bg">
     <div class="container py-4 py-md-5">
-        <section class="quiz-shell mx-auto p-3 p-md-4 rounded-4">
-            <h1>“The year is 1914. Europe is tense. One event will change the world forever…”</h1>
-            <div class="card border-0 shadow-sm rounded-4">
-                <div class="card-body p-3 p-md-4">
-                    <h2 class="h4 fw-bold text-center mb-4">What event triggered the start of World War One?</h2>
+      <section class="quiz-shell mx-auto p-3 p-md-4 rounded-4">
+        <h1 class="h4 fw-bold text-center mb-4" id="question-intro">
+          Test Intro
+        </h1>
+        <div class="card border-0 shadow-sm rounded-4">
+          <div class="card-body p-3 p-md-4">
+            <h2 class="h4 fw-bold text-center mb-4" id="quiz-question">
+              Test Question
+            </h2>
 
-                    <div class="row g-3 align-items-start">
-                        <div class="col-12 col-md-4">
-                            <div class="quiz-img-box">
-                                <img src="styles/images/quiz.png" class="quiz-img" alt="Quiz image">
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-8">
-
-                            <form id="quizForm">
-                                <div class="list-group">
-
-                                    <label class="list-group-item d-flex gap-2 quiz-option">
-                                        <input class="form-check-input mt-1" type="radio" name="answer"
-                                            data-correct="false">
-                                        <span> A) The invasion of Poland </span>
-                                    </label>
-
-                                    <label class="list-group-item d-flex gap-2 quiz-option">
-                                        <input class="form-check-input mt-1" type="radio" name="answer"
-                                            data-correct="true">
-                                        <span>B) The assassination of Archduke Franz Ferdinand</span>
-                                    </label>
-
-                                    <label class="list-group-item d-flex gap-2 quiz-option">
-                                        <input class="form-check-input mt-1" type="radio" name="answer"
-                                            data-correct="false">
-                                        <span> C) The signing of the Treaty of Versailles</span>
-                                    </label>
-
-                                    <label class="list-group-item d-flex gap-2 quiz-option">
-                                        <input class="form-check-input mt-1" type="radio" name="answer"
-                                            data-correct="false">
-                                        <span>D) The sinking of the Titanic</span>
-                                    </label>
-
-                                </div>
-                            </form>
-
-                            <div class="d-flex justify-content-end mt-3">
-                                <button id="nextBtn" type="button" class="btn btn-dark px-4" disabled>
-                                    Next <span aria-hidden="true">→</span>
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-
+            <div class="row g-3 align-items-start">
+              <div class="col-12 col-md-4">
+                <div class="quiz-img-box">
+                  <img
+                    src="styles/images/quiz.png"
+                    class="quiz-img"
+                    alt="Quiz image"
+                  />
                 </div>
+              </div>
+
+              <div class="col-12 col-md-8">
+                <form id="question-form">
+                  <div class="list-group">
+                    <label
+                      class="list-group-item d-flex gap-2 quiz-option"
+                      for="option-A-input"
+                    >
+                      <input
+                        class="form-check-input mt-1"
+                        type="radio"
+                        name="answer"
+                        id="option-A-input"
+                        value="option-A"
+                        required
+                      />
+                      <span id="optA">Test A</span>
+                    </label>
+
+                    <label
+                      class="list-group-item d-flex gap-2 quiz-option"
+                      for="option-B-input"
+                    >
+                      <input
+                        class="form-check-input mt-1"
+                        type="radio"
+                        name="answer"
+                        id="option-B-input"
+                        value="option-B"
+                      />
+                      <span id="optB">Test B</span>
+                    </label>
+
+                    <label
+                      class="list-group-item d-flex gap-2 quiz-option"
+                      for="option-C-input"
+                      id="optA"
+                    >
+                      <input
+                        class="form-check-input mt-1"
+                        type="radio"
+                        name="answer"
+                        id="option-C-input"
+                        value="option-C"
+                      />
+                      <span id="optC">Test C</span>
+                    </label>
+
+                    <label
+                      class="list-group-item d-flex gap-2 quiz-option"
+                      for="option-D-input"
+                    >
+                      <input
+                        class="form-check-input mt-1"
+                        type="radio"
+                        name="answer"
+                        id="option-D-input"
+                        value="option-D"
+                      />
+                      <span id="optD">Test D</span>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-end mt-3">
+                    <button
+                      id="next-button"
+                      type="submit"
+                      value="submit"
+                      class="btn btn-dark px-4"
+                    >
+                      Next <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
-
-        </section>
+          </div>
+        </div>
+      </section>
     </div>
-
-    <script>
-        const options = document.querySelectorAll(".quiz-option");
-        const nextBtn = document.getElementById("nextBtn");
-
-        options.forEach(option => {
-            option.addEventListener("click", () => {
-
-                // stop selecting again
-                if (document.querySelector(".quiz-option.correct, .quiz-option.wrong")) return;
-
-                const input = option.querySelector("input");
-                input.checked = true;
-
-                const isCorrect = input.dataset.correct === "true";
-
-                if (isCorrect) {
-                    option.classList.add("correct");
-                } else {
-                    option.classList.add("wrong");
-                    document.querySelector('[data-correct="true"]').closest(".quiz-option").classList.add("correct");
-                }
-
-                nextBtn.disabled = false;
-            });
-        });
-
-        nextBtn.addEventListener("click", () => {
-            // later can load the next question here
-            alert("Next question.");
-        });
-    </script>
-</body>
+  </body>
 </html>
