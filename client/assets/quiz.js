@@ -20,7 +20,10 @@ questionForm.addEventListener("submit", (e) => {
   questionTime(e);
   i += 1;
   if (i >= 11) {
-    window.location.assign("summary.html");
+    setTimeout(() => {
+      window.location.assign("summary.html");
+    }, 1500);
+    
   }
   setTimeout(() => {
     fetchQuestion(i);
@@ -43,7 +46,7 @@ async function fetchQuestion(question_id) {
 
 function displayQuestion(data) {
   intro.textContent = data["question_intro"];
-  question.textContent = data["question"];
+  question.textContent =   `Question ${data["question_id"]}: ${data["question"]}`;
   optionA.textContent = data["option_a"];
   optionB.textContent = data["option_b"];
   optionC.textContent = data["option_c"];

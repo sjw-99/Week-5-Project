@@ -1,4 +1,4 @@
-
+fetchAllQuestions()
 
 async function fetchAllQuestions() {
   try {
@@ -14,4 +14,3 @@ async function fetchAllQuestions() {
   }
 }
 
-fetchAllQuestions()
