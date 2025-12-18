@@ -4,7 +4,7 @@ const logger = require('./logger')
 const questionsRouter = require('./routers/questions')
 const currentRouter = require('./routers/current')
 const averagesRouter = require('./routers/averages')
-
+const studentsRouter = require('./routers/students')
 
 const userRouter = require('./routers/user')
 
@@ -20,6 +20,7 @@ app.use('/', questionsRouter)
 app.use('/', currentRouter)
 app.use('/users', userRouter)
 app.use('/', averagesRouter)
+app.use('/', studentsRouter)
 
 app.get("/", (req, res) => {
   res.status(200).json({

@@ -37,8 +37,9 @@ class Current {
         const current_mission = await db.query('SELECT * FROM current;')
         if(current_mission.rows.length >= 0) {
             let response = await db.query(
-                    'INSERT INTO current (question_intro, question,correct_option,topic) SELECT question_intro, question,correct_option, topic FROM question WHERE question_id = $1;',[question_id]);
-        } else {
+                    'INSERT INTO current (question_intro, question,correct_option,topic) SELECT question_intro, question,correct_option, topic FROM question WHERE question_id = $1 Returning *;',[question_id]);
+                    return new Current(response.rows[0])
+                } else {
             throw new Error('Current Mission full')
         }
     }
