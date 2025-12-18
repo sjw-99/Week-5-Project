@@ -70,7 +70,7 @@ async function questionTime(e) {
     question: data["question"],
     student_option: answer,
     correct_option: data["correct_option"],
-    topic: data["topic"],
+    topic: data["topic"]
   });
 
   const respCreate = await fetch(
@@ -79,11 +79,11 @@ async function questionTime(e) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        question_intro: data["question_intro"],
-        question: data["question"],
-        student_option: answer,
-        correct_option: data["correct_option"],
-        topic: data["topic"],
+        "question_intro": data["question_intro"],
+        "question": data["question"],
+        "student_option": answer,
+        "correct_option": data["correct_option"],
+        "topic": data["topic"]
       }),
     }
   );

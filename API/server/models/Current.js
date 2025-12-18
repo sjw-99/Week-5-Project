@@ -56,7 +56,7 @@ class Current {
     const { question_intro, question, student_option, correct_option, topic } =
       data;
     const existing_question = await db.query(
-      "SELECT question FROM from current WHERE LOWER(question_intro) = LOWER($1);",
+      "SELECT question FROM current WHERE LOWER(question_intro) = LOWER($1);",
       [question_intro]
     );
 
