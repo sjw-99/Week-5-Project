@@ -397,6 +397,16 @@ body {
   border-color: #e26b5f;
 }
 
+.form-check-input.correct {
+  background-color: #b6e3b6;
+  border-color: #7bc47b;
+}
+
+.form-check-input.wrong {
+  background-color: #f6b0aa;
+  border-color: #e26b5f;
+}
+
 /* prevent clicking just the radio */
 .quiz-option input {
   pointer-events: none;
