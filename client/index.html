@@ -20,12 +20,11 @@
   </header>
 
   <main class="container-fluid">
-
     <div class="content">
 
+      <!-- Welcome -->
       <section class="welcome">
         <div class="welcome-left">
-          <!-- Character image -->
           <img class="character-img" src="styles/images/character.png" alt="Character">
         </div>
 
@@ -42,53 +41,53 @@
         </div>
       </section>
 
+      <!-- Missions + Progress -->
       <section class="grid-row">
         <div class="missions">
           <h2 class="section-title">Your Top Missions</h2>
 
           <div class="mission-cards">
             <a class="mission-card" href="#">
-              <!-- Mission image -->
               <img src="styles/images/ww1.png" alt="WW1 Mission">
               <p>WW1 Mission</p>
             </a>
 
             <a class="mission-card selected" href="#">
-              <!-- Mission image -->
               <img src="styles/images/rome.png" alt="Rome Mission">
               <p>Rome Mission</p>
             </a>
           </div>
         </div>
 
-        <aside class="progress">
+        <aside class="progress-panel">
           <h2 class="section-title">Your Progress</h2>
 
           <div class="progress-wrap">
+            <!-- Badge -->
             <div class="progress-badge">
-              <!-- Badge image -->
               <img class="badge-img" src="styles/images/2nd.png" alt="Progress badge">
             </div>
 
+            <!-- Bars -->
             <div class="progress-list">
               <div class="progress-row">
-                <span class="progress-name">WW1 Mission</span>
-                <span class="progress-bar"><span class="fill green" style="width:92%;"></span></span>
+                <div class="progress-name">WW1 Mission</div>
+                <span class="progress-bar"><span class="fill green" style="width: 92%"></span></span>
               </div>
 
               <div class="progress-row">
-                <span class="progress-name">Roman Mission</span>
-                <span class="progress-bar"><span class="fill yellow" style="width:72%;"></span></span>
+                <div class="progress-name">Roman Mission</div>
+                <span class="progress-bar"><span class="fill yellow" style="width: 70%"></span></span>
               </div>
 
               <div class="progress-row">
-                <span class="progress-name">Tudors Mission</span>
-                <span class="progress-bar"><span class="fill yellow" style="width:62%;"></span></span>
+                <div class="progress-name">Tudors Mission</div>
+                <span class="progress-bar"><span class="fill yellow" style="width: 55%"></span></span>
               </div>
 
               <div class="progress-row">
-                <span class="progress-name">Egyptians Mission</span>
-                <span class="progress-bar"><span class="fill yellow" style="width:56%;"></span></span>
+                <div class="progress-name">Egyptians Mission</div>
+                <span class="progress-bar"><span class="fill yellow" style="width: 45%"></span></span>
               </div>
             </div>
           </div>
@@ -97,9 +96,9 @@
 
     </div>
 
+    <!-- Carousel -->
     <section class="fact-carousel">
       <div id="didYouKnowCarousel" class="carousel slide" data-bs-ride="carousel">
-
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#didYouKnowCarousel" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1"></button>
@@ -109,29 +108,20 @@
 
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <!-- Fun fact -->
             <a href="quiz.html">
               <img src="styles/images/ww1Fact.png" class="d-block w-100 fact-img" alt="Fun fact 1">
             </a>
-            <div class="fact-overlay">
-
-            </div>
+            <div class="fact-overlay"></div>
           </div>
 
           <div class="carousel-item">
-            <!-- Fun fact -->
             <img src="styles/images/romanFact.png" class="d-block w-100 fact-img" alt="Fun fact 2">
-            <div class="fact-overlay">
-
-            </div>
+            <div class="fact-overlay"></div>
           </div>
 
           <div class="carousel-item">
-            <!-- Fun fact -->
             <img src="styles/images/tudorsFact.png" class="d-block w-100 fact-img" alt="Fun fact 3">
-            <div class="fact-overlay">
-
-            </div>
+            <div class="fact-overlay"></div>
           </div>
         </div>
 
@@ -142,13 +132,15 @@
         <button class="carousel-control-next" type="button" data-bs-target="#didYouKnowCarousel" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
-
       </div>
     </section>
 
+    <!-- Learn -->
     <div class="content">
       <section class="learn">
-        <h3 class="learn-title">Learn More About History</h3>
+        <h3 class="learn-title">Explore Deeper</h3>
+        <p class="learn-text">Want to level up your knowledge?</p>
+        <p class="learn-text">If a topic sparks your interest, check out the links below to explore it further and become a quiz master!</p>
 
         <div class="learn-buttons">
           <a class="learn-btn" href="#">Roman Times</a>
@@ -158,8 +150,8 @@
         </div>
       </section>
     </div>
-
   </main>
+
   <footer class="bottombar"></footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
