@@ -33,7 +33,8 @@ CREATE TABLE current (
     question VARCHAR(100) NOT NULL,
     student_option VARCHAR(100),
     correct_option VARCHAR(100) NOT NULL,
-    topic VARCHAR(100) NOT NULL
+    topic VARCHAR(100) NOT NULL,
+    PRIMARY KEY (question_id)
 );
 
 
@@ -41,7 +42,8 @@ DROP TABLE IF Exists student;
 CREATE TABLE student (
     topic_id INT GENERATED ALWAYS AS IDENTITY,
     topic VARCHAR(100) NOT NULL,
-    topic_percent FLOAT NOT NULL
+    topic_percent FLOAT NOT NULL,
+    PRIMARY KEY (topic_id)
     
 );
 /*
@@ -59,7 +61,8 @@ CREATE TABLE stats (
     student_id INT GENERATED ALWAYS AS IDENTITY,
     topic VARCHAR(100) NOT NULL,
     topic_percent FLOAT,
-    times_completed INT
+    times_completed INT,
+    PRIMARY KEY (student_id)
 );
 
 DROP TABLE IF Exists user_account;
