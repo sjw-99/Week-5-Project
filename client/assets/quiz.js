@@ -59,7 +59,7 @@ async function updateCurrent(question_id, student_option) {
   }
 }
 
-function questionTime(e) {
+async function questionTime(e) {
   e.preventDefault();
   let answer = document.querySelector('input[name="answer"]:checked').value;
   if (answer == currentQuestion["correct_option"]) {

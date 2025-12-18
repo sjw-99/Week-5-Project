@@ -24,18 +24,16 @@ async function show (req, res) {
     }
 }
 
-async function update (req, res) {
+async function create (req, res) {
     try {
-        const question_id = req.params.question_id;
         const data = req.body;
-        const current = await Current.getOneQuetsionById(question_id);
-        const result = await current.update(data);
-        res.status(200).json(result);
-    } catch (err) {
-        res.status(404).json({error: err.message})
+        const newQuestion = await Current.create(data);
+        res.status(201).json(newQuestion);
+    } catch(err) {
+        res.status(400).json({error: err.message});
     }
 }
 
 
 
-module.exports = {index,show,update}
+module.exports = {index,show,create}
