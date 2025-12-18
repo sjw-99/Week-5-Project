@@ -68,18 +68,19 @@ body {
 /* Welcome */
 .welcome {
   display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 34px;
+  grid-template-columns: 260px 1fr;
+  gap: 44px;
   align-items: center;
   margin-top: 8px;
   margin-bottom: 34px;
 }
 
 .character-img {
-  width: 130px;
-  height: 130px;
+  width: 280px;
+  height: 280px;
   object-fit: contain;
   display: block;
+  
 }
 
 .welcome-title {
@@ -196,11 +197,13 @@ body {
 }
 
 .badge-img {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   object-fit: contain;
   display: block;
+  margin: 0 auto;
 }
+
 
 .progress-list {
   display: grid;
@@ -254,12 +257,11 @@ body {
 
 .fact-img {
   width: 100%;
-  height: 430px;
+  height: 480px;
   object-fit: cover;
   cursor: pointer;
   display: block;
 }
-
 .fact-img:hover {
   filter: brightness(0.95);
 }
@@ -303,9 +305,18 @@ body {
 }
 
 .learn-title {
-  font-size: 14px;
+  font-size: 30px;
   font-weight: 800;
   margin-bottom: 16px;
+  color: #d16c24;
+}
+
+.learn-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+  font-weight: 700;     
+  margin-bottom: 8px;
 }
 
 .learn-buttons {
@@ -313,6 +324,7 @@ body {
   justify-content: center;
   gap: 26px;
   flex-wrap: wrap;
+  margin-top: 22px;      
 }
 
 .learn-btn {
@@ -402,72 +414,22 @@ body {
   pointer-events: none;
 }
 
-/* Responsive */
-@media (max-width: 820px) {
-  .content {
-    width: 92vw;
-    padding: 28px 0;
-  }
-
-  .welcome {
-    grid-template-columns: 110px 1fr;
-    gap: 18px;
-  }
-
-  .character-img {
-    width: 95px;
-    height: 95px;
-  }
-
-  .welcome-title {
-    font-size: 30px;
-  }
-
-  .grid-row {
-    grid-template-columns: 1fr;
-    gap: 26px;
-    margin-bottom: 40px;
-  }
-
-  .mission-card {
-    width: 170px;
-  }
-
-  .mission-card img {
-    height: 120px;
-  }
-
-  .progress-wrap {
-    grid-template-columns: 120px 1fr;
-  }
-
-  .fact-img {
-    height: 260px;
-  }
-
-  .fact-title {
-    font-size: 30px;
-  }
-
-  .fact-text {
-    font-size: 16px;
-  }
+/* Quiz close button */
+.quiz-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 28px;
+  line-height: 1;
+  text-decoration: none;
+  color: #111;
+  font-weight: 700;
+  opacity: 0.7;
+  cursor: pointer;
 }
 
-/* Quiz mobile  */
-@media (max-width: 767px) {
-  .quiz-img-box {
-    margin-bottom: 20px;
-  }
-
-  .list-group-item {
-    font-size: 16px;
-    padding: 14px;
-  }
-
-  .form-check-input {
-    transform: scale(1.15);
-  }
+.quiz-close:hover {
+  opacity: 1;
 }
 
 /*  Login and Create account */
@@ -568,22 +530,6 @@ body {
   text-decoration: underline;
 }
 
-/* Mobile  */
-@media (max-width: 600px) {
-  .login-card {
-    padding: 40px 26px;
-  }
-
-  .login-card .title {
-    font-size: 34px;
-  }
-
-  .login-card .input {
-    font-size: 18px;
-    height: 50px;
-  }
-}
-
 /* Summary Page */
 
 .summary-page {
@@ -652,14 +598,15 @@ body {
 }
 
 /* Progress container */
-.progress {
+
+.summary-panel .progress {
   height: 14px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.7);
   overflow: hidden;
 }
 
-.progress-bar {
+.summary-panel .progress-bar {
   width: 75%;
   background-color: #ddd;
   transition: background-color 0.3s ease;
@@ -698,7 +645,119 @@ body {
   filter: brightness(0.96);
 }
 
-/* Mobile */
+/* Responsive */
+
+@media (max-width: 820px) {
+  .welcome {
+    grid-template-columns: 180px 1fr; 
+    gap: 20px;
+    align-items: center;
+  }
+
+  .character-img {
+    width: 170px;
+    height: 170px;
+  }
+
+  .welcome-title {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 820px) {
+  .fact-img {
+    height: 260px;
+  }
+}
+
+@media (max-width: 820px) {
+  .content {
+    width: 92vw;
+    padding: 28px 0;
+  }
+
+  .welcome {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 44px;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 34px;
+}
+
+.character-img {
+  width: 210px;
+  height: 210px;
+  object-fit: contain;
+  display: block;
+  
+}
+
+  .welcome-title {
+    font-size: 30px;
+  }
+
+  .grid-row {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    margin-bottom: 40px;
+  }
+
+  .mission-card {
+    width: 170px;
+  }
+
+  .mission-card img {
+    height: 120px;
+  }
+
+  .progress-wrap {
+    grid-template-columns: 120px 1fr;
+  }
+
+  .fact-img {
+    height: 260px;
+  }
+
+  .fact-title {
+    font-size: 30px;
+  }
+
+  .fact-text {
+    font-size: 16px;
+  }
+}
+
+/* Quiz mobile  */
+@media (max-width: 767px) {
+  .quiz-img-box {
+    margin-bottom: 20px;
+  }
+
+  .list-group-item {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .form-check-input {
+    transform: scale(1.15);
+  }
+}
+
+@media (max-width: 600px) {
+  .login-card {
+    padding: 40px 26px;
+  }
+
+  .login-card .title {
+    font-size: 34px;
+  }
+
+  .login-card .input {
+    font-size: 18px;
+    height: 50px;
+  }
+}
 
 @media (max-width: 640px) {
   .summary-panel {
@@ -713,3 +772,5 @@ body {
     height: 12px;
   }
 }
+
+
