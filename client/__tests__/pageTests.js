@@ -11,7 +11,12 @@ describe("index.html", () => {
   beforeEach(async () => {
     dom = await renderDOM("./index.html");
     document = await dom.window.document;
-  });
+  })
+    it('has a button', () => {
+    const btn = document.querySelector('button')
+    expect(btn).toBeTruthy;
+    expect(btn.innerHTML).toBe("Click me")
+  })
 });
 
 // Test suite for login.html
@@ -20,16 +25,24 @@ describe("login.html", () => {
   beforeEach(async () => {
     dom = await renderDOM("./login.html");
     document = await dom.window.document;
-  });
+  })
+   it("has a form", () => {
+    const form = document.querySelector("form");
+    expect(form).toBeTruthy();
+  })
 });
 
-// Test suite for dashboard.html
-describe("dashboard.html", () => {
-  // Create a dom and document from dashboard.html
+// Test suite for register.html
+describe("register.html", () => {
+  // Create a dom and document from register.html
   beforeEach(async () => {
-    dom = await renderDOM("./dashboard.html");
+    dom = await renderDOM("./register.html");
     document = await dom.window.document;
-  });
+  })
+   it("has a form", () => {
+    const form = document.querySelector("form");
+    expect(form).toBeTruthy();
+  })
 });
 
 // Test suite for missions.html
@@ -38,7 +51,11 @@ describe("missions.html", () => {
   beforeEach(async () => {
     dom = await renderDOM("./missions.html");
     document = await dom.window.document;
-  });
+  })
+   it("has a form", () => {
+    const form = document.querySelector("img");
+    expect(form).toBeTruthy();
+  })
 });
 
 // Test suite for quiz.html
@@ -47,7 +64,11 @@ describe("quiz.html", () => {
   beforeEach(async () => {
     dom = await renderDOM("./quiz.html");
     document = await dom.window.document;
-  });
+  })
+it("shows multiple choice questions", () => {
+    const h1 = document.querySelector("h1");
+    expect(h1).toBeTruthy();
+  })
 });
 
 // Test suite for summary.html
@@ -56,5 +77,9 @@ describe("summary.html", () => {
   beforeEach(async () => {
     dom = await renderDOM("./summary.html");
     document = await dom.window.document;
-  });
+  })
+  it("shows progress bars", () => {
+    const bar = document.querySelector(".progress, .progress-bar");
+    expect(bar).toBeTruthy();
+  })
 });

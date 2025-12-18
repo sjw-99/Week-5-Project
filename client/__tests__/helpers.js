@@ -22,4 +22,4 @@ const renderDOM = async (filename) => {
   });
 };
 
-module.exports = { renderDom };
+module.exports = { renderDOM };

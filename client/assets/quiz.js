@@ -1,40 +1,70 @@
-const nextButton = document.getElementById("next-button");
+// const db = require("../../API/server/db/connect");
 
-function displayQuestion (data) {
-    const intro = document.getElementById("question-intro");
-    intro.textContent = data["question_intro"];
+const questionForm = document.querySelector("#question-form");
+const intro = document.querySelector("#question-intro");
+const question = document.querySelector("#quiz-question");
+const optionA = document.querySelector("#optA");
+const optionB = document.querySelector("#optB");
+const optionC = document.querySelector("#optC");
+const optionD = document.querySelector("#optD");
 
-    const question = document.getElementById("quiz-question");
-    question.textContent = data["question"];
+const optionAValue = document.getElementById("option-A-input");
+const optionBValue = document.getElementById("option-B-input");
+const optionCValue = document.getElementById("option-C-input");
+const optionDValue = document.getElementById("option-D-input");
 
-    const optionA = document.getElementById("option-A");
-    optionA.textContent = data["option_a"];
+let currentQuestion;
+let i = 1;
 
-    const optionB = document.getElementById("option-B");
-    optionB.textContent = data["option_b"];
+fetchQuestion(i);
 
-    const optionC = document.getElementById("option-C");
-    optionC.textContent = data["option_c"];
+questionForm.addEventListener("submit", (e) => {
+  questionTime(e);
+  i += 1;
+  fetchQuestion(i);
+});
 
-    const optionD = document.getElementById("option-D");
-    optionD.textContent = data["option_d"];
-
-}
-
-async function fetchQuestion (i) {
-    try {
-        const response = await fetch(`http://localhost:3000/question/${i}`)
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        return new Error("Failed to fetch question");
-    }
-}
-
-for (let i=1; i <= 10; i++) {
-    const data = await fetchQuestion(i);
+async function fetchQuestion(question_id) {
+  try {
+    const response = await fetch(
+      `https://week-5-project-nylk.onrender.com/question/${question_id}`
+    );
+    const data = await response.json();
+    currentQuestion = data;
+    console.log(data);
     displayQuestion(data);
-    if (document.getElementById("next-button").clicked == true) {
-        continue;
-    }
-};
+  } catch (error) {
+    return new Error("Failed to fetch question");
+  }
+}
+
+function displayQuestion(data) {
+  intro.textContent = data["question_intro"];
+  question.textContent = data["question"];
+  optionA.textContent = data["option_a"];
+  optionB.textContent = data["option_b"];
+  optionC.textContent = data["option_c"];
+  optionD.textContent = data["option_d"];
+
+  optionAValue.value = data["option_a"];
+  optionBValue.value = data["option_b"];
+  optionCValue.value = data["option_c"];
+  optionDValue.value = data["option_d"];
+}
+
+async function updateCurrent(question_id, student_option) {
+  try {
+  } catch (error) {
+    return new Error("Failed to update current");
+  }
+}
+
+async function questionTime(e) {
+  e.preventDefault();
+  let answer = document.querySelector('input[name="answer"]:checked').value;
+  if (answer == currentQuestion["correct_option"]) {
+    console.log("Correct!");
+  } else {
+    console.log("Incorrect!");
+  }
+}
