@@ -35,7 +35,6 @@ async function fetchAllQuestions() {
       `https://week-5-project-nylk.onrender.com/mission/summary`
     );
     const data = await response.json();
-    data;
     let counter = 0;
     for (let i=0; i<10; i++) {
         let question = data[i]["question"]
@@ -57,17 +56,21 @@ async function fetchAllQuestions() {
   }
 }
 
-backToHome.addEventListener("click",alljobsIndex)
-toDash.addEventListener("click",e => {
-    clearSummary;
-    addtostudents;
-    //window.location.assign("index.html")
-})
+backToHome.addEventListener("click", alljobsIndex)
+toDash.addEventListener("click", alljobsStats)
 
 async function alljobsIndex() {
     await fetch('https://week-5-project-nylk.onrender.com/addtostudents')
     setTimeout(()=>{
         window.location.assign("index.html")
+    }, 500)
+    await fetch('https://week-5-project-nylk.onrender.com/clear')
+}
+
+async function alljobsStats() {
+    await fetch('https://week-5-project-nylk.onrender.com/addtostudents')
+    setTimeout(()=>{
+        window.location.assign("stats.html")
     }, 500)
     await fetch('https://week-5-project-nylk.onrender.com/clear')
 }
