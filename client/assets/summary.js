@@ -22,10 +22,13 @@ const q10Status = document.querySelector("#q10-status");
 
 const backToHome = document.querySelector("#close-cross"); 
 const toDash = document.querySelector("#dash"); 
+const total = document.querySelector("#total"); 
 
 let runThrough = [q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q1Status,q2Status,q3Status,q4Status,q5Status,q6Status,q7Status,q8Status,q9Status,q10Status]
 
 fetchAllQuestions()
+
+
 async function fetchAllQuestions() {
   try {
     const response = await fetch(
@@ -48,34 +51,25 @@ async function fetchAllQuestions() {
             runThrough[i+10].textContent = `Your answer: "${studentAnswer}" was ${status} The correct answer was : "${correctAnswer}"`
         }      
     }
+    total.textContent=`You got ${counter}%`
   } catch (error) {
     return new Error("Failed to fetch question");
   }
 }
 
-//Potential method for finding score but much easier solution
-// addtostudents()
-// async function addtostudents() {
-//   try {
-//     const response = await fetch('https://week-5-project-nylk.onrender.com/addtostudents');
-//     const latest = await fetch('https://week-5-project-nylk.onrender.com/latest/score');
-//     const data = await latest.json()
-//     console.log(data);
-//   } catch (error) {
-//     return new Error("Failed to add to students");
-//   }
-// }
+backToHome.addEventListener("click",alljobsIndex)
+toDash.addEventListener("click",e => {
+    clearSummary;
+    addtostudents;
+    //window.location.assign("index.html")
+})
 
-backToHome.addEventListener("click",clearSummary)
-toDash.addEventListener("click",clearSummary)
-
-async function clearSummary() {
-  try {
-    const clear = await fetch('https://week-5-project-nylk.onrender.com/clear');
-  } catch (error) {
-    return new Error("Failed to clear summary");
-  }
+async function alljobsIndex() {
+    await fetch('https://week-5-project-nylk.onrender.com/addtostudents')
+    setTimeout(()=>{
+        window.location.assign("index.html")
+    }, 500)
+    await fetch('https://week-5-project-nylk.onrender.com/clear')
 }
-
 
 
