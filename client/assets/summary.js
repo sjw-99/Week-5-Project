@@ -60,19 +60,25 @@ backToHome.addEventListener("click", alljobsIndex)
 toDash.addEventListener("click", alljobsStats)
 
 async function alljobsIndex() {
-    await fetch('https://week-5-project-nylk.onrender.com/addtostudents')
+    const scores = await fetch('https://week-5-project-nylk.onrender.com/addtostudents')
+    const clear = await fetch('https://week-5-project-nylk.onrender.com/clear')
+    scores;
+    clear;
     setTimeout(()=>{
         window.location.assign("index.html")
     }, 500)
-    await fetch('https://week-5-project-nylk.onrender.com/clear')
+    
 }
 
 async function alljobsStats() {
-    await fetch('https://week-5-project-nylk.onrender.com/addtostudents')
+    const scores = await fetch('https://week-5-project-nylk.onrender.com/addtostudents')
+    const clear = await fetch('https://week-5-project-nylk.onrender.com/clear')
+    scores;
+    clear;
     setTimeout(()=>{
         window.location.assign("stats.html")
     }, 500)
-    await fetch('https://week-5-project-nylk.onrender.com/clear')
+    
 }
 
 

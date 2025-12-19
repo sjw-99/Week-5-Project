@@ -23,7 +23,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   console.log(response);
 
   if (response.status == 200) {
-    window.location.assign("missions.html");
+    window.location.assign("index.html");
   } else {
     alert(data.error);
   }
