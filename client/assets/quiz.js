@@ -1,5 +1,3 @@
-// const db = require("../../API/server/db/connect");
-
 const questionForm = document.querySelector("#question-form");
 const intro = document.querySelector("#question-intro");
 const question = document.querySelector("#quiz-question");
@@ -16,13 +14,30 @@ const optionDValue = document.getElementById("option-D-input");
 let currentQuestion;
 let i = 1;
 
+clearSummary()
 fetchQuestion(i);
 
 questionForm.addEventListener("submit", (e) => {
   questionTime(e);
   i += 1;
-  fetchQuestion(i);
+  if (i >= 11) {
+    setTimeout(() => {
+      window.location.assign("summary.html");
+    }, 1500);
+    
+  }
+  setTimeout(() => {
+    fetchQuestion(i);
+  }, 1500);
 });
+
+async function clearSummary() {
+  try {
+    const clear = await fetch('https://week-5-project-nylk.onrender.com/clear');
+  } catch (error) {
+    return new Error("Failed to clear summary");
+  }
+}
 
 async function fetchQuestion(question_id) {
   try {
@@ -40,7 +55,7 @@ async function fetchQuestion(question_id) {
 
 function displayQuestion(data) {
   intro.textContent = data["question_intro"];
-  question.textContent = data["question"];
+  question.textContent =   `Question ${data["question_id"]}: ${data["question"]}`;
   optionA.textContent = data["option_a"];
   optionB.textContent = data["option_b"];
   optionC.textContent = data["option_c"];
@@ -52,19 +67,55 @@ function displayQuestion(data) {
   optionDValue.value = data["option_d"];
 }
 
-async function updateCurrent(question_id, student_option) {
-  try {
-  } catch (error) {
-    return new Error("Failed to update current");
-  }
-}
-
 async function questionTime(e) {
   e.preventDefault();
-  let answer = document.querySelector('input[name="answer"]:checked').value;
+  let answerBox = document.querySelector('input[name="answer"]:checked');
+  let answer = answerBox.value;
+
+  try {
+    const response = await fetch(
+      `https://week-5-project-nylk.onrender.com/question/${i}`
+    );
+    const data = await response.json();
+
+    console.log({
+      question_intro: data["question_intro"],
+      question: data["question"],
+      student_option: answer,
+      correct_option: data["correct_option"],
+      topic: data["topic"]
+    });
+
+    const respCreate = await fetch(
+      `https://week-5-project-nylk.onrender.com/cqadd`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          "question_intro": data["question_intro"],
+          "question": data["question"],
+          "student_option": answer,
+          "correct_option": data["correct_option"],
+          "topic": data["topic"]
+        }),
+      }
+    );
+  } catch (error) {
+    new Error("Failed to post question")
+  }
+
+
   if (answer == currentQuestion["correct_option"]) {
     console.log("Correct!");
+    answerBox.classList.add("correct");
+    setTimeout(() => {
+      answerBox.classList.remove("correct");
+    }, 1499);
   } else {
     console.log("Incorrect!");
+    answerBox.classList.add("wrong");
+    setTimeout(() => {
+      answerBox.classList.remove("wrong");
+    }, 1499);
   }
 }

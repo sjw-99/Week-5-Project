@@ -26,11 +26,11 @@ class Current {
   }
 
   static async clearTable() {
-    await db.query("TRUNCATE TABLE current;");
-    await db.query("DBCC CHECKIDENT ('current', RESEED, 0);");
+    let alpha = await db.query("TRUNCATE TABLE current;");
+    let beta = await db.query("DBCC CHECKIDENT (current, RESEED, 0);");
   }
 
-  static async getOneQuetsionById(question_id) {
+  static async getOneQuestionById(question_id) {
     const response = await db.query(
       "SELECT * FROM current WHERE question_id=$1;",
       [question_id]
@@ -41,22 +41,11 @@ class Current {
     return new Current(response.rows[0]);
   }
 
-  static async addQuestionToCurrent(question_id) {
-    const current_mission = await db.query("SELECT * FROM current;");
-    if (current_mission.rows.length >= 0) {
-      let response = await db.query(
-        "INSERT INTO current (question_intro, question,correct_option,topic) SELECT question_intro, question,correct_option, topic FROM question WHERE question_id = $1;",
-        [question_id]
-      );
-    } else {
-      throw new Error("Current Mission full");
-    }
-  }
   static async create(data) {
     const { question_intro, question, student_option, correct_option, topic } =
       data;
     const existing_question = await db.query(
-      "SELECT question FROM from current WHERE LOWER(question_intro) = LOWER($1);",
+      "SELECT question FROM current WHERE LOWER(question_intro) = LOWER($1);",
       [question_intro]
     );
 
